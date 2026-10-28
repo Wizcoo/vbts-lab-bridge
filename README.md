@@ -15,6 +15,7 @@
 ## 内容边界
 
 - `tools/`：离线完整性工具，Python 3.10+，仅标准库。
+- `device/`：Windows 采集、可选 SDK 比较、离线审计、无删行导出与独立环境依赖；操作见 [设备端指南](docs/device-tools.md)。
 - `docs/`：两端流程、数据合同、初始化决策。
 - `prompts/`：可直接给两端 agent 的任务。
 - `sessions/`：每次交接一个目录，保存元数据与审查结果。
@@ -40,4 +41,4 @@ python tools/session_integrity.py verify C:/capture/session_YYYYMMDD_HHMMSS
 
 seal 只读取文件并新建 `checksums.sha256`，不覆盖已有清单。verify 要求全部文件与清单一致；它只验证字节完整性，不验证时间同步、GT、指标或 SDK 一致性。
 
-现阶段没有跨平台采集器；不把旧工程依赖硬件 DLL 的程序冒充本仓库开箱即用的采集功能。
+设备端现在有 Windows OpenCV 相机 + HPS 六维力计采集入口。需要现场现有 DLL、真实 profile、相机/串口驱动；仓库不分发 DLL/模型/dataset。[完整实验室 agent 任务](prompts/lab-full-handoff.md) 可直接交给设备端。

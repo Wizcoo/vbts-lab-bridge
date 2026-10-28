@@ -295,13 +295,22 @@ class SixAxisForceSensor:
         self.moment_arm = float(moment_arm)
         if len(self.axis_signs) != 6 or not all(x in (-1., 1.) for x in self.axis_signs) or not math.isfinite(self.moment_arm):
             raise ValueError("Invalid force coordinate contract")
-        self.dll_path = str(dll_path)
+        self.dll_path = os.path.abspath(str(dll_path))
         self.baud_rate = int(baud_rate)
         self.port = port.encode() if isinstance(port, str) else port
         self.recorder = recorder
         self.accepted_codes = tuple(int(c) for c in accepted_codes)
         self.poll_interval_sec = max(0., float(poll_interval_sec))
-        self.dll = dll if dll is not None else ctypes.CDLL(self.dll_path)
+        if dll is not None:
+            self.dll = dll
+        else:
+            dll_dir = os.path.dirname(self.dll_path)
+            if hasattr(os, 'add_dll_directory') and os.path.isdir(dll_dir):
+                try:
+                    os.add_dll_directory(dll_dir)
+                except Exception:
+                    pass
+            self.dll = ctypes.CDLL(self.dll_path)
         self.handle = -1
         self.ft_ready = False
         self.running = False

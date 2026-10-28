@@ -1,0 +1,9 @@
+﻿actions:
+  - name: tare_reference
+    operator_confirmed_no_contact: true
+  - name: slow_loading_hold_unload_repeated_press
+    description: operator applied manual force sequence on VBTS sensor
+gap_analysis:
+  physical_calibration: UNKNOWN
+  hardware_sync_proven: false
+  exposure_timestamp: UNAVAILABLE

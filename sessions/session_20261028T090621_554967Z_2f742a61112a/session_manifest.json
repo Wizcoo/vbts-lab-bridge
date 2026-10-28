@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "session_id": "20261028T090621_554967Z_2f742a61112a",
+  "provenance_kind": "new_capture",
+  "source_schema_version": 2,
+  "source_status": "closed",
+  "source_audit_passed": true,
+  "qualification_status": "NOT_READY",
+  "source_data_policy": "unfiltered byte-identical copy",
+  "axis_order": [
+    "Fx",
+    "Fy",
+    "Fz",
+    "Mx",
+    "My",
+    "Mz"
+  ],
+  "declared_software_units": [
+    "N",
+    "N",
+    "N",
+    "N*m",
+    "N*m",
+    "N*m"
+  ],
+  "transformed_force_formula": "signed=raw*profile_signs; Mx+=signed_Fy*arm; My-=signed_Fx*arm",
+  "counts": {
+    "saved_pairs": 1834,
+    "raw_force_reads": 27174
+  },
+  "limitations": [
+    "Host call times, not hardware exposure/sample timestamps; physical synchronization unverified.",
+    "Latest-frame capture may skip intermediate frames. camera_frames.csv covers saved pairs, not every camera exposure.",
+    "force_raw.csv logs SDK-returned values in each hardware tare epoch; pre-hardware-tare values cannot be recovered.",
+    "Raw units, physical calibration, axes and torque origin require external evidence despite software N/N*m declarations.",
+    "No actual SDK input tensor is available through the copied interface. No tensors are fabricated.",
+    "SDK prediction_json.raw_force is an SDK field, not independently proven unprocessed ONNX graph output.",
+    "No force failure, invalid alignment, reference or saved frame was filtered from raw_source.",
+    "assets in device_inventory are declared files; actual loaded-module identity still needs device logs.",
+    "No operator action annotations supplied; actions.csv is absent.",
+    "No preflight device identity report supplied."
+  ],
+  "reference_records": "raw_source/reference_*.json",
+  "original_events": "raw_source/events.jsonl"
+}

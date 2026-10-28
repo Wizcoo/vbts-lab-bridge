@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "session_id": "REPLACE_AFTER_CAPTURE",
+  "provenance_kind": "NOT_CAPTURED",
+  "capture_status": "NOT_RUN",
+  "source_commit": "UNKNOWN",
+  "working_tree_changes": "UNKNOWN",
+  "devices": {"vbts": "UNKNOWN", "camera": "UNKNOWN", "force_sensor": "UNKNOWN"},
+  "host_clock": {"api": "UNKNOWN", "unit": "ns", "utc_anchor": null, "timezone": "Asia/Shanghai"},
+  "force_contract": {"raw_axis_order": "UNKNOWN", "raw_units": "UNKNOWN", "transforms": [], "calibration_evidence": "UNKNOWN", "rated_fs": null},
+  "assets": [],
+  "counts": {"camera_received": null, "images_saved": null, "force_samples": null},
+  "hardware_sync_evidence": "UNKNOWN",
+  "reference_and_tare_events": [],
+  "artifact": {"approved_access_location": null, "sha256": null, "bytes": null},
+  "missing_fields_and_limitations": ["This template is not a captured session."],
+  "qualification_status": "NOT_READY"
+}

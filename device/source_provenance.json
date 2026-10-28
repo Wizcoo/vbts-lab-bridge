@@ -1,0 +1,30 @@
+{
+  "source": "HSMVBTS models acquisition tools, copied 2026-10-28; active originals remain unchanged",
+  "files": [
+    {
+      "file": "collect_sync_dataset.py",
+      "source_sha256": "6ac54d7903d88731ed63d276bcdf7b873ef94ac8617621f4ff6ebe0feae03ace"
+    },
+    {
+      "file": "sync_acquisition.py",
+      "source_sha256": "8182234f5a81e32a2ac63cf5b8c0d1130bbf0a7c4f60945425085ce6d74ac63f"
+    },
+    {
+      "file": "audit_sync_session.py",
+      "source_sha256": "ff9e244495d485819effdb02f5158ba03709f6ff3fe7e2424176781fa74597bc"
+    },
+    {
+      "file": "main_match.py",
+      "source_sha256": "8d917beb4fa1425ba7c85a2aace0511eb2861f29efd6b50964188d6efb0c744b"
+    },
+    {
+      "file": "test_collect_sync_dataset.py",
+      "source_sha256": "660c489bd3ab1e22d807e203308f06972e3a554a599e560632a136463cdfe736"
+    },
+    {
+      "file": "test_audit_sync_session.py",
+      "source_sha256": "a8391b6ce23f84bc7c49fcf62e064fcfa02313ad0cd84b423e3a91b2639a0b00"
+    }
+  ],
+  "modifications": "See docs/device-tools.md; CLI paths, test fixtures and transport adapter only. No model or DLL included."
+}

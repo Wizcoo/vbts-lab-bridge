@@ -34,3 +34,6 @@ datasets/
 local_data/
 artifacts_local/
 configs/*.local.*
+device/vbts_collector_test_*/
+device/vbts_collector_exit_*/
+device/.audit-test-*/

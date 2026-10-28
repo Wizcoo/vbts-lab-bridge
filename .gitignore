@@ -37,3 +37,10 @@ configs/*.local.*
 device/vbts_collector_test_*/
 device/vbts_collector_exit_*/
 device/.audit-test-*/
+
+# Large raw dataset directories
+local_data/
+sessions/**/raw_source/
+*.zip
+*.7z
+

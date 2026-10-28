@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "purpose": "preflight_inventory",
+  "hardware_opened": false,
+  "asset_identity_kind": "declared paths, NOT proof of actually loaded modules",
+  "status": "FILES_PRESENT",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.13.9 | packaged by Anaconda, Inc. | (main, Oct 21 2025, 19:09:58) [MSC v.1929 64 bit (AMD64)]",
+  "pointer_bits": 64,
+  "packages": {
+    "numpy": "2.3.5",
+    "opencv-python": "4.13.0.92",
+    "onnxruntime": "1.27.0"
+  },
+  "clock": {
+    "api": "time.perf_counter_ns",
+    "unit": "ns",
+    "monotonic_before_ns": 614963764198400,
+    "utc_ns": 1793177088917079700,
+    "monotonic_after_ns": 614963764199400,
+    "hardware_sync_proven": false
+  },
+  "assets": [
+    {
+      "kind": "profile",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\test_force_profile.txt",
+      "exists": true,
+      "bytes": 168,
+      "sha256": "6ea4b7b1f287d0ee9854a2d12697f2c3ec0b839ea87673b597a885b5aa594538"
+    },
+    {
+      "kind": "ft_dll",
+      "path": "F:\\Wiz\\DataCollection\\hps_ft.dll",
+      "exists": true,
+      "bytes": 320000,
+      "sha256": "38cc0e3225ddf9f14f0594780f1a72a17d16a8b9684a4d641fdb798873f0fb70"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\audit_sync_session.py",
+      "exists": true,
+      "bytes": 26622,
+      "sha256": "7d6e629af91ff3932ddf461dc5e14cd39f8c98d0190f9e230f3c8a27cfd90de0"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\collect_sync_dataset.py",
+      "exists": true,
+      "bytes": 20428,
+      "sha256": "66bf3799ed13c9c9447c84204a91c850d56752274b81c635ca269721a680913e"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\export_session.py",
+      "exists": true,
+      "bytes": 10829,
+      "sha256": "91bf0c0c98585def61c2fe74c0e6ddec21ccf3158e39081bf79160f68564d9dd"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\inventory_device.py",
+      "exists": true,
+      "bytes": 3280,
+      "sha256": "9092c332e3192df21e7af7a1e703a6068b24cb226b59f41e61557e68cf159660"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\main_match.py",
+      "exists": true,
+      "bytes": 26524,
+      "sha256": "3629799d92e84aace9c1dbf0376ef277794641b6696101a1a28b577f0bc904f8"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\sync_acquisition.py",
+      "exists": true,
+      "bytes": 32397,
+      "sha256": "e784d984eb42cd5a88f5c66092bef6c7aae60f57be642448bc00ac83c29da8dc"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\test_audit_sync_session.py",
+      "exists": true,
+      "bytes": 14104,
+      "sha256": "c8ac1c4c903c51dab49d33a88bf855b3f82c4b85c6940d80a9fe672f4d75110a"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\test_collect_sync_dataset.py",
+      "exists": true,
+      "bytes": 17471,
+      "sha256": "2668f0f53e5d46340770df2a4cb1f32dbe12811cd3e37a56cae6fc4eb54e2c6c"
+    },
+    {
+      "kind": "bridge_source",
+      "path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\device\\test_export_session.py",
+      "exists": true,
+      "bytes": 3484,
+      "sha256": "4503b01b035cc9e39a25a4dbf14f615672e065caf8b108b6c96c27232d1c3468"
+    }
+  ],
+  "physical_calibration": "UNKNOWN",
+  "device_identity": "CONFIRM_ON_LAB_PC",
+  "sdk_abi_verified": false,
+  "qualification_status": "NOT_READY"
+}

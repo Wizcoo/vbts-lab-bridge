@@ -1,0 +1,75 @@
+{
+  "audit_schema_version": 1,
+  "session_path": "F:\\Wiz\\DataCollection\\vbts-lab-bridge\\local_data\\captures\\session_20261028T090621_554967Z_2f742a61112a",
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "Force hardware sample timestamps are unavailable in schema v2. Host interpolation success does not prove exposure/ADC synchronization.",
+    "Camera exposure timestamps are unavailable; grab completion/receive timestamps are host timestamps.",
+    "Repeated PNG content hashes can be legitimate static frames; frame_seq reuse is an error. No physical unloaded-reference condition is established by file integrity alone."
+  ],
+  "hardware_synchronization_proven": false,
+  "hardware_force_timestamp_available": false,
+  "scope": "Integrity and exact reconstruction of logged HOST timestamps/labels only; no delay estimation or physical hardware calibration.",
+  "session_id": "20261028T090621_554967Z_2f742a61112a",
+  "source_schema_version": 2,
+  "session_status": "closed",
+  "event_counts": {
+    "session_start": 1,
+    "force_open_result": 1,
+    "collector_started": 1,
+    "camera_sequence_gap": 1510,
+    "reference_request": 1,
+    "tare_request": 1,
+    "tare_result": 1,
+    "reference_requested": 1,
+    "reference_applied": 1,
+    "recording_resume": 1,
+    "recording_pause": 1,
+    "collector_exit": 1,
+    "session_end": 1
+  },
+  "tare_epochs": {
+    "0": null,
+    "1": 616264644705400
+  },
+  "counts": {
+    "raw_reads": 27174,
+    "pairs": 1834,
+    "references": 1,
+    "valid_labels": 1834,
+    "invalid_labels": 0,
+    "pairs_without_reference": 0,
+    "duplicate_ipoc_raw_reads": 22684,
+    "unique_frame_sequences": 1834,
+    "duplicate_frame_rows": 0,
+    "repeated_image_hash_rows": 0
+  },
+  "sync_success_rate": 1.0,
+  "sync_status_counts": {
+    "OK": 1834
+  },
+  "raw_status_counts": {
+    "OK": 4489,
+    "DUPLICATE_IPOC": 22684,
+    "DLL_READ_FAILED": 1
+  },
+  "bracket_gap_ms": {
+    "n": 1834,
+    "min": 3.40885,
+    "median": 12.89015,
+    "p95": 15.196325,
+    "p99": 18.108077,
+    "max": 20.4438
+  },
+  "camera_exposure_timestamp_rows": 0,
+  "training_compatibility": "Schema-v2 sessions cannot be passed directly to the historical dataset_manifest.py. Optional audited manifest is a new adapter interface; split remains unassigned and must be assigned by whole session.",
+  "error_counts": {},
+  "source_hashes": {
+    "session.json": "b8f76b8b408e0a6c70b65788136ea0b35e492569c68fa8fc4bd2440893400c66",
+    "force_raw.csv": "2f3078ab8beb27e997243656c49bf6c96ac112bf641d95072b18ed763ed7677d",
+    "capture_sync.csv": "9ae174fea0ed654efcf54c339664e443f0d593e1f1dbb3ae004fea2de5d7ec12",
+    "events.jsonl": "7443ec0272b56eae430c4e5b71170a2b866d4df8598f3795714f02aa45ad036a",
+    "sensor_profile_snapshot.txt": "6ea4b7b1f287d0ee9854a2d12697f2c3ec0b839ea87673b597a885b5aa594538"
+  }
+}

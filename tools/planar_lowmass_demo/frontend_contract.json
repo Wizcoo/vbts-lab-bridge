@@ -1,0 +1,41 @@
+{
+  "schema": "planar_dis_raw_camera_uv_v1",
+  "sensor_id": "HSMVBTS_G01_H20_000011",
+  "image_shape": [
+    480,
+    640,
+    3
+  ],
+  "image_dtype": "uint8",
+  "image_channel": "B",
+  "uv_shape": [
+    2,
+    69,
+    82
+  ],
+  "uv_dtype": "float32",
+  "uv_units": "pixel",
+  "valid_shape": [
+    1,
+    69,
+    82
+  ],
+  "valid_dtype": "bool",
+  "geometry_hash": "be7f9795d5fdebee10e6f65202e1f7e6ef20458b08f8ba5f1489f77962e0aaa6",
+  "geometry_status": "ENGINEERING_ROI_NOT_NEW_PHYSICAL_CALIBRATION",
+  "method": "old_dis_fixed_reference_pairwise",
+  "valid_fraction_minimum": 0.2,
+  "temporal_filter": false,
+  "amplitude_normalization": false,
+  "rigid_correction": false,
+  "reference_updates": false,
+  "qualification": "NOT_READY",
+  "vendor_sha256": {
+    "vendor/float_tracker.py": "65a477c2e09b3494cf72daec06c9411a4e6a2bad918b7c1cd6b628b13c7c8133",
+    "vendor/protocol.json": "6d218fbc6b313c7b3f9fe67ff9008ed7e9f68cfcd00b5b763c2b85d54dbff254",
+    "vendor/sealed_baseline/uv_frontend.py": "da9a8f7471e5897907d729f5ebc802cb0e76ce5775bde34edaa58dc5a8a5955d",
+    "vendor/sealed_baseline/protocol.json": "d688e0694ed9a5967d3fd383e15a4ac5de7cda192c2115dd02b230af544fbc3c",
+    "vendor/sealed_baseline/vendor/preprocessing.py": "a728c15b4d28570b81e4f56505d785a2a688986d0605f98ed51d33e0b5ee8440",
+    "vendor/sealed_baseline/vendor/profile.txt": "b10854521b9fb2219d8389876f583614302d112449699ba7f9ce513d92ada230"
+  }
+}

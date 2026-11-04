@@ -1,0 +1,171 @@
+{
+  "schema": "planar_lowmass_demo_candidate_v1",
+  "default_model": "lowmass_head60",
+  "models": [
+    {
+      "schema": "planar_lowmass_demo_candidate_v1",
+      "name": "lowmass_head60",
+      "kind": "cnn_uv",
+      "onnx_file": "lowmass_head60.onnx",
+      "sha256": "dc6a9cd06fef218484337158846852713e7abc0015efb5cdf8caa17dd54a7abc",
+      "input_names": {
+        "uv": "raw_uv",
+        "valid": "valid"
+      },
+      "output_name": "signed_fz_n",
+      "inputs": {
+        "raw_uv": {
+          "dtype": "float32",
+          "shape": [
+            "N",
+            2,
+            69,
+            82
+          ],
+          "units": "pixel"
+        },
+        "valid": {
+          "dtype": "bool",
+          "shape": [
+            "N",
+            1,
+            69,
+            82
+          ]
+        }
+      },
+      "output": {
+        "dtype": "float32",
+        "shape": [
+          "N"
+        ],
+        "units": "N",
+        "axis": "signed_source_Fz"
+      },
+      "normalization": {
+        "scope": "FROZEN_PRETRAINING_TRAIN_ONLY",
+        "embedded_in_graph": true,
+        "input_mean": [
+          -0.33474278450012207,
+          -0.03846554458141327
+        ],
+        "input_scale": [
+          1.31829035282135,
+          1.3873662948608398
+        ],
+        "target_mean": -7.458962276298345,
+        "target_scale": 4.313882323773941
+      },
+      "checkpoint_sha256": "4dd84d56dfb3a8cfaaf5cd2989027db9ca1d209db1c87bc6b58c7190492ed7d9",
+      "code_sha256": "a99670510b54b5bbf1b3162c9c595fb559b0752be48c1ce7301a760b7b0001eb",
+      "export_code_sha256": "d431c6a05684092f2f1d32bf99042222cc53478417237c6c7e2c50050c3e55c7",
+      "frontend_contract_sha256": "d40afc9b243d1ae71ce4f27c10a564fb050b8746a10e135b1e5a639001f6ff4e",
+      "qualification": "NOT_READY",
+      "physical_accuracy": "UNVERIFIED",
+      "adaptation_training_rows": 667,
+      "calibration_scope": "CURRENT_FAMA_SENSOR_0_100G",
+      "xy_channels_embedded": false,
+      "parity": {
+        "status": "PASS_ADAPTATION_REPLAY_ONNX_PARITY",
+        "rows": 1501,
+        "failed_rows": 0,
+        "batch1_and64_pass": true,
+        "max_abs_delta_n": 3.814697265625e-06,
+        "cpu_torch_max_abs_delta_n": 4.291534423828125e-06
+      },
+      "output_policy": {
+        "clip": false,
+        "smooth": false,
+        "step_snap": false,
+        "automatic_tare": false
+      },
+      "sdk_drop_in_compatible": false
+    },
+    {
+      "schema": "planar_lowmass_demo_candidate_v1",
+      "name": "lowmass_aug60",
+      "kind": "cnn_uv",
+      "onnx_file": "lowmass_aug60.onnx",
+      "sha256": "df9a841e311e589e8d40b2a42179e31113ae8ec41f9841168bff7552660c8ed0",
+      "input_names": {
+        "uv": "raw_uv",
+        "valid": "valid"
+      },
+      "output_name": "signed_fz_n",
+      "inputs": {
+        "raw_uv": {
+          "dtype": "float32",
+          "shape": [
+            "N",
+            2,
+            69,
+            82
+          ],
+          "units": "pixel"
+        },
+        "valid": {
+          "dtype": "bool",
+          "shape": [
+            "N",
+            1,
+            69,
+            82
+          ]
+        }
+      },
+      "output": {
+        "dtype": "float32",
+        "shape": [
+          "N"
+        ],
+        "units": "N",
+        "axis": "signed_source_Fz"
+      },
+      "normalization": {
+        "scope": "FROZEN_PRETRAINING_TRAIN_ONLY",
+        "embedded_in_graph": true,
+        "input_mean": [
+          -0.33474278450012207,
+          -0.03846554458141327
+        ],
+        "input_scale": [
+          1.31829035282135,
+          1.3873662948608398
+        ],
+        "target_mean": -7.458962276298345,
+        "target_scale": 4.313882323773941
+      },
+      "checkpoint_sha256": "df18e4fb5bfd45d6511e83972040d6e1a1865e09a5d37f91c155dfb8944b56ba",
+      "code_sha256": "a99670510b54b5bbf1b3162c9c595fb559b0752be48c1ce7301a760b7b0001eb",
+      "export_code_sha256": "d431c6a05684092f2f1d32bf99042222cc53478417237c6c7e2c50050c3e55c7",
+      "frontend_contract_sha256": "d40afc9b243d1ae71ce4f27c10a564fb050b8746a10e135b1e5a639001f6ff4e",
+      "qualification": "NOT_READY",
+      "physical_accuracy": "UNVERIFIED",
+      "adaptation_training_rows": 667,
+      "calibration_scope": "CURRENT_FAMA_SENSOR_0_100G",
+      "xy_channels_embedded": false,
+      "parity": {
+        "status": "PASS_ADAPTATION_REPLAY_ONNX_PARITY",
+        "rows": 1501,
+        "failed_rows": 0,
+        "batch1_and64_pass": true,
+        "max_abs_delta_n": 3.814697265625e-06,
+        "cpu_torch_max_abs_delta_n": 3.337860107421875e-06
+      },
+      "output_policy": {
+        "clip": false,
+        "smooth": false,
+        "step_snap": false,
+        "automatic_tare": false
+      },
+      "sdk_drop_in_compatible": false
+    }
+  ],
+  "frontend_contract_sha256": "d40afc9b243d1ae71ce4f27c10a564fb050b8746a10e135b1e5a639001f6ff4e",
+  "qualification": "NOT_READY",
+  "calibration_scope": "CURRENT_FAMA_SENSOR_0_100G",
+  "validation_status": "RESUBSTITUTION_FIT_AND_SHARED_REFERENCE_CYCLE_DIAGNOSTICS_ONLY",
+  "capture_snapshot_sensor_id": "HSMVBTS_G01_H20_000015",
+  "inherited_profile_sensor_id": "HSMVBTS_G01_H20_000011",
+  "identity_status": "UNRESOLVED"
+}

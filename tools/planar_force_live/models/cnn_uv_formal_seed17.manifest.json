@@ -1,0 +1,99 @@
+{
+  "schema": "planar_raw_uv_fz_onnx_v1",
+  "name": "cnn_uv_formal_seed17",
+  "kind": "cnn_uv",
+  "seed": 17,
+  "onnx_file": "cnn_uv_formal_seed17.onnx",
+  "sha256": "21e2cf24a5298a94f54190c9689b5e64df929dbd3d636c821706c5509747afd1",
+  "input_names": {
+    "uv": "raw_uv",
+    "valid": "valid"
+  },
+  "output_name": "signed_fz_n",
+  "inputs": {
+    "raw_uv": {
+      "dtype": "float32",
+      "shape": [
+        "N",
+        2,
+        69,
+        82
+      ],
+      "units": "pixel"
+    },
+    "valid": {
+      "dtype": "bool",
+      "shape": [
+        "N",
+        1,
+        69,
+        82
+      ]
+    }
+  },
+  "output": {
+    "dtype": "float32",
+    "shape": [
+      "N"
+    ],
+    "units": "N",
+    "axis": "signed_source_Fz"
+  },
+  "normalization": {
+    "scope": "TRAIN_ONLY",
+    "input_mean": [
+      -0.33474278450012207,
+      -0.03846554458141327
+    ],
+    "input_scale": [
+      1.31829035282135,
+      1.3873662948608398
+    ],
+    "target_mean": -7.458962276298345,
+    "target_scale": 4.313882323773941,
+    "arithmetic": "float32",
+    "embedded_in_graph": true
+  },
+  "xy_channels_embedded": false,
+  "xy_definition": "image-fixed x,y linspace[-1,1], not stage coordinates",
+  "checkpoint_sha256": "dcd3fe2d1e505ae0f0c7dd3ba847a6916f258e358d3523216addabd9de201d25",
+  "training_code_sha256": "cf07dcbdddce73fb3c1b99db9cfdabcaec3d1ee0c61069fdd17c9d072c71aebb",
+  "export_code_sha256": "abf5718acd1d117fa82eb92ca94cbf5dbc9bb2b7751fc62edb8403f1cead9164",
+  "invalid_cell_policy": "where(valid,normalized_uv,0), append float32 validity channel",
+  "frame_quality_gate_required": "Reject nonfinite raw_uv or per-frame valid fraction <0.2 before graph invocation",
+  "adaptive_pool_export": "Exact floor/ceil overlapping region means for17x20->4x4; no training changes",
+  "onnx_opset": 17,
+  "onnx_checker": "PASS",
+  "dynamic_batches_checked": [
+    1,
+    64
+  ],
+  "output_policy": {
+    "sign_fit": false,
+    "tare": false,
+    "smooth": false,
+    "clip": false,
+    "hold_last": false
+  },
+  "qualification": "NOT_READY",
+  "physical_accuracy": "UNVERIFIED",
+  "sdk_drop_in_compatible": false,
+  "parity": {
+    "status": "PASS_ALL_RECORDED_FRAME_ONNX_PARITY",
+    "rows": 42465,
+    "atol": 1e-05,
+    "rtol": 1e-05,
+    "max_absolute_delta_n": 5.7220458984375e-06,
+    "failed_rows": 0,
+    "batch1_and64_pass": true,
+    "source_prediction_sha256": "09507e6edc72681538f9c3918fa4cec8f0dec4416afa123578711420d14514d8"
+  },
+  "versions": {
+    "torch": "2.5.1+cu121",
+    "onnx": "1.23.2",
+    "onnxruntime": "1.31.0",
+    "numpy": "2.5.3"
+  },
+  "sensor_id": "HSMVBTS_G01_H20_000011",
+  "frontend_contract_sha256": "d40afc9b243d1ae71ce4f27c10a564fb050b8746a10e135b1e5a639001f6ff4e"
+}

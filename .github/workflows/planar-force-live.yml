@@ -1,0 +1,32 @@
+name: Planar force runtime
+
+on:
+  push:
+    paths:
+      - 'tools/planar_force_live/**'
+      - '.github/workflows/planar-force-live.yml'
+  pull_request:
+    paths:
+      - 'tools/planar_force_live/**'
+      - '.github/workflows/planar-force-live.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  software-checks:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: tools/planar_force_live
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install runtime dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run offline tests (no camera access)
+        run: python -m unittest discover -s tests -v
+      - name: Load bundled ONNX and frontend (synthetic pixels only)
+        run: python -B planar_force.py offline-check

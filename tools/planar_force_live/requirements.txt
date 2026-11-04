@@ -1,0 +1,5 @@
+# Versions used for offline equivalence. Install explicitly; launchers never install.
+numpy==2.5.3
+opencv-python==5.0.0.93
+scipy==1.18.1
+onnxruntime==1.31.0

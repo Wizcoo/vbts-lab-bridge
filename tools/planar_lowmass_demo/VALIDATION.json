@@ -1,0 +1,30 @@
+{
+  "schema": "lowmass_software_validation_summary_v1",
+  "qualification": "NOT_READY",
+  "independent_physical_validation": false,
+  "adaptation_rows": 667,
+  "fixed_training_runs": 10,
+  "epochs_per_run": 60,
+  "fit_mae_n": {
+    "A": 0.02066686596512666,
+    "B": 0.02469215340227464
+  },
+  "shared_reference_cycle_diagnostic_mae_n": {
+    "A": 0.09972163973214884,
+    "B": 0.1040495571900631
+  },
+  "onnx_parity_values": 3002,
+  "onnx_parity_max_abs_delta_n": 3.814697265625e-06,
+  "unit_tests": 26,
+  "final_review_status": "PASS_LOW_MASS_ADAPTATION_SOFTWARE_AND_EVIDENCE_REVIEW",
+  "final_review_sha256": "069e6208d4cf9e21faa0de1cea05c7620d4cd06dfa38a4c24a9ca5b9b36e3aa6",
+  "unresolved_software_must_fix": [],
+  "camera_accessed": false,
+  "actual_axes": [
+    "Fz"
+  ],
+  "other_axes": "N/A",
+  "calibration_scope": "Current FaMa recording, 0-100g; not arbitrary contact locations",
+  "independent_lab_test": "NOT_RUN",
+  "active_models_replaced": false
+}

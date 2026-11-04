@@ -2,6 +2,8 @@
 
 本机分析端与实验室 PC 的协作仓库。设备端不需要训练 dataset；通过 PR 交换工具、诊断 session 清单、日志和审核意见。
 
+当前低载测试入口：[10/20/50/100 g 实验室任务](prompts/lab-lowmass-test.md) · [中文快速启动](tools/planar_lowmass_demo/QUICKSTART_ZH.md)。包含用户批准发布的两个专用校准 ONNX；尚未通过独立多落点实测。仓库公开，新采图像/力标签仍默认留本地。
+
 ## 第一轮目标
 
 完成一次可追溯的 `真实采集 -> 数据交接 -> 本机检查 -> 离线复算`。初始化仓库没有采集数据、模型、硬件驱动，也没有证明物理精度。
@@ -14,7 +16,8 @@
 
 ## 内容边界
 
-- `tools/`：离线完整性工具，Python 3.10+，仅标准库。
+- `tools/session_integrity.py`：离线完整性工具，Python 3.10+，仅标准库。
+- `tools/planar_lowmass_demo/`：低载 Fz 校准候选，Python 3.12、独立固定依赖和两个 ONNX，不依赖其他候选 PR。
 - `device/`：Windows 采集、可选 SDK 比较、离线审计、无删行导出与独立环境依赖；操作见 [设备端指南](docs/device-tools.md)。
 - `docs/`：两端流程、数据合同、初始化决策。
 - `prompts/`：可直接给两端 agent 的任务。
@@ -41,4 +44,4 @@ python tools/session_integrity.py verify C:/capture/session_YYYYMMDD_HHMMSS
 
 seal 只读取文件并新建 `checksums.sha256`，不覆盖已有清单。verify 要求全部文件与清单一致；它只验证字节完整性，不验证时间同步、GT、指标或 SDK 一致性。
 
-设备端现在有 Windows OpenCV 相机 + HPS 六维力计采集入口。需要现场现有 DLL、真实 profile、相机/串口驱动；仓库不分发 DLL/模型/dataset。[完整实验室 agent 任务](prompts/lab-full-handoff.md) 可直接交给设备端。
+设备端现在有 Windows OpenCV 相机 + HPS 六维力计采集入口。需要现场现有 DLL、真实 profile、相机/串口驱动；仓库不分发专有 DLL 或 dataset，模型仅限明确授权的候选。[完整实验室 agent 任务](prompts/lab-full-handoff.md) 供六维采集参考；其中历史“私有仓库”描述不构成当前公开上传数据的授权。

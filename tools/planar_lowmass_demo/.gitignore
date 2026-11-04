@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.venv/
+# User-approved release of these two small candidates; future training outputs stay excluded.
+!models/
+!models/*.onnx
+!models/*.json
+recordings/
+_checks/
+*.log
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.npz
+*.pt

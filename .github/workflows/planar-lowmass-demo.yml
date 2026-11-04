@@ -1,0 +1,30 @@
+name: Planar low-mass demo
+on:
+  push:
+    paths:
+      - 'tools/planar_lowmass_demo/**'
+      - 'prompts/lab-lowmass-test.md'
+      - '.github/workflows/planar-lowmass-demo.yml'
+  pull_request:
+    paths:
+      - 'tools/planar_lowmass_demo/**'
+      - 'prompts/lab-lowmass-test.md'
+      - '.github/workflows/planar-lowmass-demo.yml'
+permissions:
+  contents: read
+jobs:
+  lowmass-software:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: tools/planar_lowmass_demo
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - name: Offline tests (no camera access)
+        run: python -B -m unittest discover -s tests -v
+      - name: Load both real ONNX using synthetic pixels only
+        run: python -B planar_force.py offline-check

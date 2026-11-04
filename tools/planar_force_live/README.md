@@ -2,6 +2,8 @@
 
 This folder runs four frozen CNN models through **ONNX Runtime CPU**, with the same fixed-reference float DIS frontend used for offline research. It produces **signed source Fz in N only**. It is not a six-axis SDK replacement. Physical qualification remains **NOT_READY**: the training data used ball contact, and independent weight steps, flat-contact generalization, drift and physical latency have not been qualified. No camera was opened by the development agents.
 
+For a copyable Chinese lab-PC task covering preflight, operator-confirmed weight steps, raw evidence and handoff, use [the planar weight-step lab prompt](../../prompts/lab-planar-weight-steps.md).
+
 Copy the complete folder, including `models/` and `vendor/`, to another location. No Torch, original research workspace, compiler, native helper DLL or network connection is required to run it after Python dependencies have been installed. Python 3.12 and the exact versions in `requirements.txt` were used for offline tests. Other dependency versions have not been certified for pixel-level frontend equivalence. Launchers do not install dependencies or change execution policy.
 
 ## Install and check, without camera access

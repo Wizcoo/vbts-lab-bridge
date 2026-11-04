@@ -1,6 +1,8 @@
 # VBTS Lab Bridge
 
-本机分析端与实验室 PC 的协作仓库。设备端不需要训练 dataset；通过 PR 交换工具、诊断 session 清单、日志和审核意见。
+本机分析端与实验室 PC 的协作仓库。设备端不需要训练 dataset；通过 PR 交换工具和经批准的诊断摘要。仓库当前公开，实际采集数据与私有配置仍默认留本地。
+
+平面夹爪砝码演示：将 [实验室 PC 测试 prompt](prompts/lab-planar-weight-steps.md) 交给现场 agent，配套 [四模型 ONNX 实时工具](tools/planar_force_live/README.md)。先做离线检查，再由人员确认开始硬件采集；当前仅 Fz，物理精度待验证。
 
 ## 第一轮目标
 
@@ -14,7 +16,8 @@
 
 ## 内容边界
 
-- `tools/`：离线完整性工具，Python 3.10+，仅标准库。
+- `tools/session_integrity.py`：离线完整性工具，Python 3.10+，仅标准库。
+- `tools/planar_force_live/`：实验性 Fz ONNX 推理，Python 3.12，独立固定依赖；包含本次获准公开的四个候选模型。
 - `device/`：Windows 采集、可选 SDK 比较、离线审计、无删行导出与独立环境依赖；操作见 [设备端指南](docs/device-tools.md)。
 - `docs/`：两端流程、数据合同、初始化决策。
 - `prompts/`：可直接给两端 agent 的任务。
@@ -41,4 +44,4 @@ python tools/session_integrity.py verify C:/capture/session_YYYYMMDD_HHMMSS
 
 seal 只读取文件并新建 `checksums.sha256`，不覆盖已有清单。verify 要求全部文件与清单一致；它只验证字节完整性，不验证时间同步、GT、指标或 SDK 一致性。
 
-设备端现在有 Windows OpenCV 相机 + HPS 六维力计采集入口。需要现场现有 DLL、真实 profile、相机/串口驱动；仓库不分发 DLL/模型/dataset。[完整实验室 agent 任务](prompts/lab-full-handoff.md) 可直接交给设备端。
+设备端现在有 Windows OpenCV 相机 + HPS 六维力计采集入口。需要现场现有 DLL、真实 profile、相机/串口驱动；仓库不分发专有 DLL 或 dataset，模型仅限上述获准公开的四个候选。[完整实验室 agent 任务](prompts/lab-full-handoff.md) 供六维采集参考；其中历史“私有仓库”描述不能作为当前公开上传数据的授权。

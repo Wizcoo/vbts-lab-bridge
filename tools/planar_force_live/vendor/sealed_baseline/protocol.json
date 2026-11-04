@@ -1,0 +1,64 @@
+{
+  "version": "uv-frontend-engineering-20261022-v1",
+  "authorization": "User confirmed PLAN; engineering implementation only; no training or production writes",
+  "data_scope": "Synthetic images, analytic fields, and fixed read-only training prefixes (hand first64 saved CSV rows with original reference; stage point0 first16 saved CSV rows with before_contact reference). Real raw matching is UNVERIFIED_REFERENCE, provides no model tensor and cannot authorize training. No reserved-test files or scores.",
+  "seed": 20261022,
+  "opencv_threads": 1,
+  "e2": {
+    "input": "same native-postprocessed 69x82x2 float32 displacements as E1",
+    "range": [-80.0, 80.0],
+    "mapping": "clip UV then continuous [0,255] float32; no rounding",
+    "resize": "same C++ float32 dimensions; OpenCV INTER_LINEAR float32",
+    "output_shape": [2,112,112],
+    "padding": 128.0,
+    "normalization": "unchanged profile pixelScale 1/255 and mean/std",
+    "state": "unchanged old DIS state, smoothing, and native postprocessing"
+  },
+  "e3": {
+    "reference": "immutable explicitly authorized pre-sequence unloaded reference; sensor/session/hash binding; no after_lift use",
+    "dis": "same DIS parameters as E1; each forward and reverse solve starts from zero flow; causal reference-current pair only",
+    "correction": "zero by default; only explicit rigid transform bound to separately approved independent rigid reference calibration",
+    "geometry": "map both displacement endpoints; units canonical_px until independent physical calibration exists",
+    "source_grid_shape": [69,82],
+    "output_shape": [4,112,112],
+    "uv_scale": 1.0,
+    "channels": ["U","V","valid","confidence"],
+    "padding": "U,V,valid,confidence all 0; padding is invalid",
+    "contact_status": "UNKNOWN; no synthetic deformation map is claimed to be a physical contact mask"
+  },
+  "quality": {
+    "window": 15,
+    "texture_std_min": 3.0,
+    "photometric_abs_max": 25.0,
+    "forward_backward_error_max_px": 1.0,
+    "saturation_fraction_max": 0.10,
+    "saturation_low": 1,
+    "saturation_high": 254,
+    "valid_frame_fraction": 0.90,
+    "invalid_frame_fraction": 0.20,
+    "confidence_interpretation": "heuristic engineering score, not a calibrated probability"
+  },
+  "acceptance": {
+    "analytic_endpoint_abs_tol": 0.0001,
+    "analytic_encoding_abs_tol": 0.0001,
+    "constant_uv_preservation_abs_tol": 0.00001,
+    "restart_abs_tol": 0.000001,
+    "translation_median_epe_px": 0.25,
+    "translation_p95_epe_px": 0.50,
+    "nontranslation_median_epe_px": 0.50,
+    "nontranslation_p95_epe_px": 1.50,
+    "known_occlusion_invalid_fraction_min": 0.80,
+    "ramp_gain_min": 0.90,
+    "ramp_gain_max": 1.10,
+    "ramp_gain_fit_gt_range_px": [0.50,2.00],
+    "subpixel_0p25_min_measured_px": 0.10,
+    "reference_rejection": "wrong binding, future timestamp, unapproved hash, after_lift, no unloaded evidence, or no texture must reject",
+    "test_thresholds_note": "Independent pre-execution review tightened ramp limits before any synthetic/real matching run; frozen thereafter. Failures remain failures and are not repaired by threshold tuning"
+  },
+  "limitations": [
+    "Synthetic image matching and analytic field checks are engineering evidence, not physical force accuracy.",
+    "No target SDK binary tensor parity is claimed.",
+    "Reference evidence metadata cannot by itself prove the physical sensor is unloaded.",
+    "Quality masks never remove rows from downstream force evaluation."
+  ]
+}

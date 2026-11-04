@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.venv/
+recordings/
+_checks/
+*.log
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.npz
+*.pt
+
+# Four reviewed small inference graphs are intentional source deliverables.
+!models/*.onnx

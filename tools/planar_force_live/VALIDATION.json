@@ -1,0 +1,23 @@
+{
+  "status": "PASS_OFFLINE_SOFTWARE_AND_EXPORT_CHECKS",
+  "physical_readiness": "NOT_READY",
+  "camera_tested": false,
+  "unit_tests": 14,
+  "independent_runtime_checks": 27,
+  "export_rows_compared": 169860,
+  "export_failed_rows": 0,
+  "export_max_abs_delta_N": 5.7220458984375e-06,
+  "real_image_pairs": 9,
+  "real_models": 4,
+  "raw_uv_and_valid_equivalence": "EXACT_WITH_FROZEN_TRAINING_FRONTEND",
+  "unresolved_must_fix": [],
+  "runtime_review_sha256": "dc91cb58f26a5377c4cd995178b64ff038395b7b4fcb707736108d71822ded94",
+  "export_review_sha256": "185c36d558906f9d57a8ee3d751ee0e629402eed30daced66563154daa610c9f",
+  "exporter_relocation_receipt_sha256": "a28994127192dbf1247c50d2d39f9e302d04f5946ca32230dba2df81bc1a3900",
+  "limitations": [
+    "No actual camera opened or physical weights tested.",
+    "One-session ball-contact Fz model; not a six-axis SDK replacement.",
+    "Model conversion parity is not force accuracy.",
+    "Camera serial identity is declared by the operator; hardware identity and end-to-end latency unverified."
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "version": "float-img2uv-comparison-v2-20261022",
+  "scope": "Frontend engineering only. No force labels, force model, reserved data, or physical deployment.",
+  "freeze_policy": "Written before candidate implementation or synthetic evaluation. Do not change acceptance or settings after observations. Preserve all failures. Select once using dev; evaluate selected candidate once on heldout.",
+  "source_reuse": "sealed_baseline is a byte copy of offline_uv_contact_20261022/frontend required files and vendor; E1/E2 state and encoders unchanged",
+  "options": {
+    "float_iclk": {"patch_size": 15, "iterations": 12, "step_max_px": 1.0, "epsilon_px": 0.0001, "sampling": "scipy order3 spline at float64 coordinates", "seed": "fixed-reference DIS ultrafast, finestScale2; refinement absolute reference-current, never temporal", "photometric": "local weighted least-squares gain and offset; never normalize UV amplitudes"},
+    "pyr_lk": {"patch_size": 21, "max_level": 3, "iterations": 40, "epsilon_px": 0.0001, "min_eigenvalue": 0.0001, "sampling": "OpenCV pyramidal Lucas-Kanade, uint8 image observations and float32 point outputs"},
+    "old_dis": "symptom baseline, same old pairwise DIS parameters; not selectable"
+  },
+  "synthetic": {
+    "dev_seed": 731021,
+    "heldout_seed": 881043,
+    "image_shape": [480,640],
+    "generator": "independent continuous Fourier texture: 64 random frequencies 0.025..0.14 cycles/px, random phases; analytical intensity evaluated at inverse-warp points; uint8 quantization only at simulated camera output",
+    "translation_px": [0.05,0.1,0.25,0.5,1.0,2.0],
+    "directions": [[1,0],[-1,0],[0,1],[0,-1]],
+    "sequence_x_px": [0,0.05,0.1,0.25,0.5,1,2,2,2,0.5,0.1,0],
+    "zero_jitter_x_px": [0,0.01,-0.01,0.02,-0.02,0],
+    "spatial_cases": ["radial_gaussian_peak2px", "torsion_gaussian_peak2px", "full_shear", "two_radial_regions"],
+    "photometric_cases": ["gain1p15_offset10_at_x0p25", "noise_sigma1_at_x0p25", "rectangle_occlusion_at_x0p25", "fully_saturated", "flat_texture_reference"],
+    "evaluation_mask": "fixed geometry grid points with x in [50,590], y in [45,435]; no validity-conditioned frame/point deletion for primary errors",
+    "no_real_image_tuning": true
+  },
+  "acceptance": {
+    "translation_median_component_abs_error_px": "max(0.01,0.05*abs(gt))",
+    "translation_signed_gain_min": 0.8,
+    "translation_signed_gain_max": 1.2,
+    "translation_all_point_p95_epe_px": 0.1,
+    "translation_valid_fraction_min": 0.9,
+    "spatial_median_epe_px": 0.1,
+    "spatial_p95_epe_px": 0.3,
+    "photometric_median_epe_px": 0.05,
+    "photometric_p95_epe_px": 0.15,
+    "known_occlusion_invalid_fraction_min": 0.8,
+    "zero_median_magnitude_px": 0.005,
+    "jitter_median_component_abs_error_px": 0.01,
+    "hold_restart_raw_max_abs_px": 0.000001,
+    "raw_corrected_identity": "bit exact when independent correction absent",
+    "reference_quality_geometry_negatives": "reuse and rerun sealed analytic suite; strict reference causal binding remains",
+    "no_threshold_tuning": true
+  },
+  "selection": "Candidates satisfying every dev translation, spatial, photometric and invalidity requirement preferred; if none pass select diagnostic winner by max translation component error ratio then median spatial error, but gate FAIL. Among passes choose fastest measured total matching time. Freeze selection/code hashes before heldout. No heldout retry or threshold adjustment.",
+  "real_smoke": {"scope": "training-source images only, no labels; after selection freeze", "hand_prefix": 16, "stage_point0_prefix": 8, "reference": "original hand reference_frame.jpg and stage point0 before_contact; UNVERIFIED_REFERENCE matching diagnostic, no force tensor/training eligibility", "purpose": "finite, validity, latency, ordered causal matching only; no physical accuracy claims or tuning"},
+  "interface": {"grid": [69,82], "tensor": [4,112,112], "channels": ["U","V","valid","confidence"], "units": "canonical_px until calibrated geometry supplied", "no_common_mode_removal": true, "no_frame_amplitude_normalization": true, "quality_cannot_delete_evaluation_rows": true},
+  "readiness": "Engineering synthetic gate is distinct from real reference/calibration, SDK parity and physical-force qualification. Passing engineering does not authorize training whose data gate is unresolved."
+}

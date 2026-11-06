@@ -251,7 +251,7 @@ def parse_args(argv=None):
     return args
 
 
-def run_collector(argv=None):
+def run_collector(argv=None, *, recorder_factory=None, lab_view=None):
     args = parse_args(argv)
     profile, signs, arm = read_force_profile(args.profile)
     from inventory_device import inventory
@@ -285,7 +285,7 @@ def run_collector(argv=None):
     if not args.ft_dll.is_file():
         raise FileNotFoundError(f"FT DLL missing: {args.ft_dll}. Set --ft-dll explicitly.")
     from sync_acquisition import SessionRecorder, SixAxisForceSensor, ZeroBufferCamera
-    recorder = SessionRecorder(args.output_dir, profile_path=args.profile, metadata=config)
+    recorder = (recorder_factory or SessionRecorder)(args.output_dir, profile_path=args.profile, metadata=config)
     sensor = camera = controller = None
     exit_reason = "ESC"
     acquisition_error = None
@@ -332,6 +332,8 @@ def run_collector(argv=None):
                 cv2.putText(display, text, (12, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.50, (0,230,230), 1)
                 cv2.putText(display, "T: unload then tare/reference | R: resume/pause", (12, 73),
                             cv2.FONT_HERSHEY_SIMPLEX, 0.45, (220,220,220), 1)
+                if lab_view is not None:
+                    lab_view.draw(display, packet, controller)
                 cv2.imshow(win_name, display)
             key = cv2.waitKey(1) & 0xFF
             if key == 27:
@@ -340,6 +342,10 @@ def run_collector(argv=None):
                 controller.request_reference()
             elif key in (ord("r"), ord("R")):
                 controller.toggle_recording()
+                if lab_view is not None:
+                    lab_view.key(key, controller, recorder)
+            elif lab_view is not None:
+                lab_view.key(key, controller, recorder)
             if packet is None:
                 time.sleep(0.002)
     except KeyboardInterrupt:

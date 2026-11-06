@@ -1,0 +1,18 @@
+{
+  "format": "fz-lab-v1",
+  "profile": "HSMVBTS_G01_H20_000011",
+  "model": "uv_mlp_17",
+  "seed": 17,
+  "unit": "N",
+  "positive": "compression",
+  "input": "640x480 BGR8 blue plane, fixed unloaded reference, reset DIS, 69x82 displacement field in pixels",
+  "weights_sha256": "bcd699c38e1d75c1aafa22f703ada896ed1eb1baa95fe3b380add647750b74e7",
+  "tracker_sha256": "8397b025e155ee48115737055d29d377f596a553b3096b705fccaff9fe7c3c67",
+  "tracker_source_sha256": "c4b74afdcf048eb6658695728abd663d169eb3e162956457ccca25c473ad41dd",
+  "opencv_sha256": "5424d86f4b63ca0e700672768296ca6374807a9db6b0c88f9bcc0940cd06c8ac",
+  "active_profile_sha256": "b10854521b9fb2219d8389876f583614302d112449699ba7f9ce513d92ada230",
+  "supplies_axes": [
+    "Fz"
+  ],
+  "qualification": "NOT_READY_FOR_RELEASE"
+}
